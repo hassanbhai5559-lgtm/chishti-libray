@@ -34,12 +34,19 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.15);
         }
 
-        .banner {
+        .banner-container {
             width: 100%;
             height: 220px;
+            background: #0b3d26; /* Fallback solid color agar banner image missing ho */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .banner {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             display: block;
-            background: #0b3d26; /* Fallback color if banner image fails */
         }
 
         .logo-wrapper {
@@ -47,6 +54,8 @@
             margin-top: -60px;
             display: inline-block;
             z-index: 2;
+            height: 120px; /* Width/Height fix taake box collapse na ho */
+            width: 120px;
         }
 
         .logo {
@@ -57,6 +66,7 @@
             background: #ffffff;
             object-fit: cover;
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            display: block;
         }
 
         .header h1 {
@@ -188,102 +198,4 @@
 
         /* FOOTER DESIGN */
         footer {
-            text-align: center;
-            padding: 20px;
-            background: #0f5132;
-            color: white;
-            font-size: 0.95rem;
-            margin-top: auto;
-            letter-spacing: 0.5px;
-        }
-
-        /* RESPONSIVE RESPONSIVENESS */
-        @media (max-width: 600px) {
-            .banner {
-                height: 160px;
-            }
-            .logo-wrapper {
-                margin-top: -50px;
-            }
-            .logo {
-                width: 100px;
-                height: 100px;
-            }
-            .header h1 {
-                font-size: 1.8rem;
-            }
-            .grid-container {
-                grid-template-columns: 1fr;
-            }
-            .book-card {
-                max-width: 100%;
-            }
-        }
-    </style>
-</head>
-<body>
-
-<header class="header">
-    <img src="banner.jpg" alt="Library Banner" class="banner">
-
-    <div class="logo-wrapper">
-        <img src="logo.png" alt="Chishti Logo" class="logo">
-    </div>
-
-    <h1>Chishti Library</h1>
-    <p>Islamic Books & Reading Center</p>
-</header>
-
-<main class="main-content">
-    
-    <div class="search-container">
-        <input type="text" id="searchBox" placeholder="Search book titles..." onkeyup="searchBooks()">
-    </div>
-
-    <div class="grid-container" id="bookGrid">
-
-        <div class="book-card">
-            <div class="book-cover-wrap">
-                <img src="image.png" alt="Shahdaye Karbala Cover" class="book-cover">
-            </div>
-            <h3 class="book-title">Shahdaye Karbala</h3>
-            <a href="shahdaye-karbala-4.html" class="btn-read">Read Book</a>
-        </div>
-
-        <div class="no-results" id="notFound">No books match your search.</div>
-
-    </div>
-</main>
-
-<footer>
-    &copy; 2026 Chishti Library. All Rights Reserved.
-</footer>
-
-<script>
-function searchBooks() {
-    const input = document.getElementById("searchBox").value.toLowerCase().trim();
-    const books = document.querySelectorAll(".book-card");
-    const notFoundMessage = document.getElementById("notFound");
-    let matchCount = 0;
-
-    books.forEach(book => {
-        const title = book.querySelector(".book-title").innerText.toLowerCase();
-        if (title.includes(input)) {
-            book.style.display = "flex";
-            matchCount++;
-        } else {
-            book.style.display = "none";
-        }
-    });
-
-    // Toggle 'No books found' alert UI
-    if (matchCount === 0 && input !== "") {
-        notFoundMessage.style.display = "block";
-    } else {
-        notFoundMessage.style.display = "none";
-    }
-}
-</script>
-
-</body>
-</html>
+            text-align
