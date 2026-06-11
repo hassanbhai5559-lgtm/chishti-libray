@@ -145,9 +145,9 @@
     <p>Islamic Books & Reading Center</p>
 </header>
 
-<!-- SEARCH -->
+<!-- SEARCH (WORKING) -->
 <div class="search">
-    <input type="text" placeholder="Search books...">
+    <input type="text" id="searchBox" placeholder="Search books..." onkeyup="searchBooks()">
 </div>
 
 <!-- BOOKS -->
@@ -155,7 +155,7 @@
 
     <div class="book">
         <img src="image.png" alt="Shahdaye Karbala" class="book-cover">
-        <h3>Shahdaye Karbala</h3>
+        <h3 class="book-title">Shahdaye Karbala</h3>
         <a href="shahdaye-karbala-4.html" class="btn">Read Book</a>
     </div>
 
@@ -165,6 +165,19 @@
 <footer>
     © 2026 Chishti Library
 </footer>
+
+<!-- SEARCH SCRIPT -->
+<script>
+function searchBooks() {
+    let input = document.getElementById("searchBox").value.toLowerCase();
+    let books = document.querySelectorAll(".book");
+
+    books.forEach(book => {
+        let title = book.querySelector(".book-title").innerText.toLowerCase();
+        book.style.display = title.includes(input) ? "block" : "none";
+    });
+}
+</script>
 
 </body>
 </html>
