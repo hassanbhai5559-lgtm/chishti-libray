@@ -8,32 +8,45 @@
     <title>Chishti Library Books Center</title>
 
     <style>
+        /* RESET & BASE STYLES */
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: #333;
         }
 
-        /* HEADER */
+        /* HEADER AREA */
         .header {
             text-align: center;
             position: relative;
             background: #0f5132;
             color: white;
-            padding-bottom: 30px;
+            padding-bottom: 35px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
         }
 
         .banner {
             width: 100%;
-            max-height: 250px;
+            height: 220px;
             object-fit: cover;
             display: block;
+            background: #0b3d26; /* Fallback color if banner image fails */
         }
 
         .logo-wrapper {
             position: relative;
             margin-top: -60px;
+            display: inline-block;
+            z-index: 2;
         }
 
         .logo {
@@ -41,141 +54,234 @@
             height: 120px;
             border-radius: 50%;
             border: 4px solid white;
-            background: white;
+            background: #ffffff;
             object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
 
         .header h1 {
-            margin: 10px 0 5px;
+            margin: 15px 0 5px;
+            font-size: 2.2rem;
+            letter-spacing: 0.5px;
         }
 
         .header p {
             margin: 0;
-            opacity: 0.9;
+            opacity: 0.85;
+            font-size: 1.1rem;
+            font-style: italic;
         }
 
-        /* SEARCH */
-        .search {
-            text-align: center;
-            margin: 20px;
-        }
-
-        .search input {
-            width: 80%;
-            max-width: 800px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        /* CONTAINER */
-        .container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
+        /* MAIN APP WRAPPER */
+        .main-content {
+            flex: 1;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
         }
 
-        /* BOOK CARD */
-        .book {
-            background: white;
-            width: 280px;
-            padding: 15px;
-            border-radius: 10px;
+        /* SEARCH BAR */
+        .search-container {
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 30px 0;
+        }
+
+        .search-container input {
+            width: 100%;
+            max-width: 600px;
+            padding: 14px 20px;
+            border: 1px solid #ccc;
+            border-radius: 30px;
+            font-size: 16px;
+            outline: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .search-container input:focus {
+            border-color: #0f5132;
+            box-shadow: 0 4px 12px rgba(15, 81, 50, 0.2);
+        }
+
+        /* GRID SYSTEM FOR CARDS */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+            justify-items: center;
+            padding: 10px 0;
+        }
+
+        /* CARD UI DESIGN */
+        .book-card {
+            background: white;
+            width: 100%;
+            max-width: 280px;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .book-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .book-cover-wrap {
+            width: 100%;
+            height: 260px;
+            background: #eaeaea;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .book-cover {
-            width: 180px;
-            height: 250px;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 10px;
         }
 
-        .btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 15px;
+        .book-title {
+            margin: 5px 0 15px 0;
+            font-size: 1.15rem;
+            color: #222;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .btn-read {
+            display: block;
+            width: 100%;
+            padding: 11px 0;
             background: #0f5132;
             color: white;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.2s ease;
         }
 
-        .btn:hover {
+        .btn-read:hover {
             background: #146c43;
         }
 
-        /* FOOTER */
-        footer {
+        /* EMPTY STATE ELEMENT */
+        .no-results {
+            grid-column: 1 / -1;
             text-align: center;
-            padding: 15px;
-            background: #0f5132;
-            color: white;
-            margin-top: 20px;
+            color: #777;
+            font-size: 1.2rem;
+            padding: 40px 0;
+            display: none;
         }
 
-        /* MOBILE */
-        @media (max-width: 600px) {
-            .book {
-                width: 90%;
-            }
+        /* FOOTER DESIGN */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0f5132;
+            color: white;
+            font-size: 0.95rem;
+            margin-top: auto;
+            letter-spacing: 0.5px;
+        }
 
-            .search input {
-                width: 95%;
+        /* RESPONSIVE RESPONSIVENESS */
+        @media (max-width: 600px) {
+            .banner {
+                height: 160px;
+            }
+            .logo-wrapper {
+                margin-top: -50px;
+            }
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            .book-card {
+                max-width: 100%;
             }
         }
     </style>
 </head>
-
 <body>
 
-<!-- HEADER -->
 <header class="header">
-    <img src="banner.jpg" alt="Banner" class="banner">
+    <img src="banner.jpg" alt="Library Banner" class="banner">
 
     <div class="logo-wrapper">
-        <img src="logo.png" alt="Logo" class="logo">
+        <img src="logo.png" alt="Chishti Logo" class="logo">
     </div>
 
     <h1>Chishti Library</h1>
     <p>Islamic Books & Reading Center</p>
 </header>
 
-<!-- SEARCH (WORKING) -->
-<div class="search">
-    <input type="text" id="searchBox" placeholder="Search books..." onkeyup="searchBooks()">
-</div>
-
-<!-- BOOKS -->
-<div class="container">
-
-    <div class="book">
-        <img src="image.png" alt="Shahdaye Karbala" class="book-cover">
-        <h3 class="book-title">Shahdaye Karbala</h3>
-        <a href="shahdaye-karbala-4.html" class="btn">Read Book</a>
+<main class="main-content">
+    
+    <div class="search-container">
+        <input type="text" id="searchBox" placeholder="Search book titles..." onkeyup="searchBooks()">
     </div>
 
-</div>
+    <div class="grid-container" id="bookGrid">
 
-<!-- FOOTER -->
+        <div class="book-card">
+            <div class="book-cover-wrap">
+                <img src="image.png" alt="Shahdaye Karbala Cover" class="book-cover">
+            </div>
+            <h3 class="book-title">Shahdaye Karbala</h3>
+            <a href="shahdaye-karbala-4.html" class="btn-read">Read Book</a>
+        </div>
+
+        <div class="no-results" id="notFound">No books match your search.</div>
+
+    </div>
+</main>
+
 <footer>
-    © 2026 Chishti Library
+    &copy; 2026 Chishti Library. All Rights Reserved.
 </footer>
 
-<!-- SEARCH SCRIPT -->
 <script>
 function searchBooks() {
-    let input = document.getElementById("searchBox").value.toLowerCase();
-    let books = document.querySelectorAll(".book");
+    const input = document.getElementById("searchBox").value.toLowerCase().trim();
+    const books = document.querySelectorAll(".book-card");
+    const notFoundMessage = document.getElementById("notFound");
+    let matchCount = 0;
 
     books.forEach(book => {
-        let title = book.querySelector(".book-title").innerText.toLowerCase();
-        book.style.display = title.includes(input) ? "block" : "none";
+        const title = book.querySelector(".book-title").innerText.toLowerCase();
+        if (title.includes(input)) {
+            book.style.display = "flex";
+            matchCount++;
+        } else {
+            book.style.display = "none";
+        }
     });
+
+    // Toggle 'No books found' alert UI
+    if (matchCount === 0 && input !== "") {
+        notFoundMessage.style.display = "block";
+    } else {
+        notFoundMessage.style.display = "none";
+    }
 }
 </script>
 
