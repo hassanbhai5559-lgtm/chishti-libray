@@ -11,11 +11,11 @@
         /* RESET & BASE STYLES */
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            margin: 0;
-            padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #f4f4f4;
             display: flex;
@@ -47,13 +47,12 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            color: transparent; /* Hides broken alt text layout */
         }
 
         .logo-wrapper {
             position: relative;
-            margin-top: -60px;
-            display: inline-block;
+            margin: -60px auto 0 auto;
+            display: block;
             z-index: 2;
             height: 120px;
             width: 120px;
@@ -68,7 +67,6 @@
             object-fit: cover;
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
             display: block;
-            color: transparent; /* Hides broken alt text layout */
         }
 
         .header h1 {
@@ -118,26 +116,22 @@
 
         /* GRID SYSTEM FOR CARDS */
         .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
             gap: 25px;
-            justify-items: center;
             padding: 10px 0;
         }
 
         /* CARD UI DESIGN */
         .book-card {
             background: white;
-            width: 100%;
-            max-width: 280px;
+            width: 280px;
             padding: 20px;
             border-radius: 12px;
             text-align: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.06);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
         }
 
         .book-card:hover {
@@ -190,12 +184,12 @@
 
         /* EMPTY STATE ELEMENT */
         .no-results {
-            grid-column: 1 / -1;
             text-align: center;
             color: #777;
             font-size: 1.2rem;
             padding: 40px 0;
             display: none;
+            width: 100%;
         }
 
         /* FOOTER DESIGN */
@@ -209,96 +203,4 @@
             letter-spacing: 0.5px;
         }
 
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 600px) {
-            .banner-container {
-                height: 160px;
-            }
-            .logo-wrapper {
-                margin-top: -50px;
-                width: 100px;
-                height: 100px;
-            }
-            .logo {
-                width: 100px;
-                height: 100px;
-            }
-            .header h1 {
-                font-size: 1.8rem;
-            }
-            .grid-container {
-                grid-template-columns: 1fr;
-            }
-            .book-card {
-                max-width: 100%;
-            }
-        }
-    </style>
-</head>
-<body>
-
-<header class="header">
-    <div class="banner-container">
-        <img src="banner.jpg" alt="Library Banner" class="banner">
-    </div>
-
-    <div class="logo-wrapper">
-        <img src="logo.png" alt="Chishti Logo" class="logo">
-    </div>
-
-    <h1>Chishti Library</h1>
-    <p>Islamic Books & Reading Center</p>
-</header>
-
-<main class="main-content">
-    
-    <div class="search-container">
-        <input type="text" id="searchBox" placeholder="Search book titles..." onkeyup="searchBooks()">
-    </div>
-
-    <div class="grid-container" id="bookGrid">
-
-        <div class="book-card">
-            <div class="book-cover-wrap">
-                <img src="image.png" alt="Shahdaye Karbala Cover" class="book-cover">
-            </div>
-            <h3 class="book-title">Shahdaye Karbala</h3>
-            <a href="shahdaye-karbala-4.html" class="btn-read">Read Book</a>
-        </div>
-
-        <div class="no-results" id="notFound">No books match your search.</div>
-
-    </div>
-</main>
-
-<footer>
-    &copy; 2026 Chishti Library. All Rights Reserved.
-</footer>
-
-<script>
-function searchBooks() {
-    const input = document.getElementById("searchBox").value.toLowerCase().trim();
-    const books = document.querySelectorAll(".book-card");
-    const notFoundMessage = document.getElementById("notFound");
-    let matchCount = 0;
-
-    books.forEach(book => {
-        const title = book.querySelector(".book-title").innerText.toLowerCase();
-        if (title.includes(input)) {
-            book.style.display = "flex";
-            matchCount++;
-        } else {
-            book.style.display = "none";
-        }
-    });
-
-    if (matchCount === 0 && input !== "") {
-        notFoundMessage.style.display = "block";
-    } else {
-        notFoundMessage.style.display = "none";
-    }
-}
-</script>
-
-</body>
-</html>
+        /* RESPONS
