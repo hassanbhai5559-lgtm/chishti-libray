@@ -2,9 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <meta name="google-site-verification" content="Nu4dgdg7ZoLzYKrhOL0UbRmrjxaXVEm47raDJnEYeFQ">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chishti Library Books Center</title>
+
+    <title>Chishti Library - Islamic Books & Reading Center</title>
+
+    <meta name="description" content="Chishti Library - Free Islamic Books & Reading Center. Read and download Islamic books online.">
 
     <style>
         * {
@@ -19,192 +24,133 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            color: #333;
         }
 
+        /* HEADER */
         .header {
             text-align: center;
             background: #0f5132;
             color: white;
-            padding: 50px 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            padding: 40px 20px;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid white;
+            object-fit: cover;
+            margin-bottom: 10px;
         }
 
         .header h1 {
-            font-size: 2.6rem;
-            margin-bottom: 10px;
+            font-size: 2.2rem;
+            margin-bottom: 5px;
         }
 
         .header p {
             opacity: 0.9;
-            font-size: 1.15rem;
-            font-style: italic;
         }
 
-        .main-content {
-            flex: 1;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
+        /* SEARCH */
         .search-container {
             text-align: center;
-            margin: 35px 0;
+            margin: 25px;
         }
 
         .search-container input {
-            width: 100%;
+            width: 80%;
             max-width: 600px;
-            padding: 14px 20px;
+            padding: 12px;
+            border-radius: 25px;
             border: 1px solid #ccc;
-            border-radius: 30px;
-            font-size: 16px;
             outline: none;
         }
 
-        .search-container input:focus {
-            border-color: #0f5132;
-        }
-
-        .grid-container {
+        /* BOOKS */
+        .container {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 25px;
-        }
-
-        .book-card {
-            background: white;
-            width: 290px;
+            gap: 20px;
             padding: 20px;
-            border-radius: 12px;
+        }
+
+        .book {
+            background: white;
+            width: 280px;
+            padding: 15px;
+            border-radius: 10px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
-        .book-cover-wrap {
-            width: 100%;
-            height: 280px;
-            background: #eaeaea;
-            border-radius: 8px;
-            overflow: hidden;
-            margin-bottom: 15px;
-        }
-
-        .book-cover {
-            width: 100%;
-            height: 100%;
+        .book img {
+            width: 180px;
+            height: 250px;
             object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
         }
 
-        .book-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .btn-read {
-            display: block;
-            width: 100%;
-            padding: 12px 0;
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
             background: #0f5132;
             color: white;
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 5px;
         }
 
-        .btn-read:hover {
+        .btn:hover {
             background: #146c43;
         }
 
-        .no-results {
-            text-align: center;
-            color: #777;
-            font-size: 1.2rem;
-            padding: 40px 0;
-            display: none;
-        }
-
+        /* FOOTER */
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 15px;
             background: #0f5132;
             color: white;
-        }
-
-        @media (max-width: 600px) {
-            .book-card {
-                width: 100%;
-            }
+            margin-top: auto;
         }
     </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header class="header">
+
+    <!-- LOGO -->
+    <img src="logo.png" alt="Chishti Library Logo" class="logo">
+
     <h1>Chishti Library</h1>
     <p>Islamic Books & Reading Center</p>
+
 </header>
 
-<main class="main-content">
+<!-- SEARCH -->
+<div class="search-container">
+    <input type="text" placeholder="Search books...">
+</div>
 
-    <div class="search-container">
-        <input type="text" id="searchBox" placeholder="Search books...">
+<!-- BOOKS -->
+<div class="container">
+
+    <div class="book">
+        <img src="image.png" alt="Shahdaye Karbala">
+        <h3>Shahdaye Karbala</h3>
+        <a href="./shahdaye-karbala-4.html" class="btn">Read Book</a>
     </div>
 
-    <div class="grid-container" id="bookGrid">
+</div>
 
-        <div class="book-card">
-            <div class="book-cover-wrap">
-                <img src="image.png" alt="Shahdaye Karbala Cover" class="book-cover">
-            </div>
-            <h3 class="book-title">Shahdaye Karbala</h3>
-            <a href="./shahdaye-karbala-4.html" class="btn-read">Read Book</a>
-        </div>
-
-    </div>
-
-    <div class="no-results" id="notFound">
-        No books match your search.
-    </div>
-
-</main>
-
+<!-- FOOTER -->
 <footer>
-    &copy; 2026 Chishti Library. All Rights Reserved.
+    © 2026 Chishti Library. All Rights Reserved.
 </footer>
-
-<script>
-function searchBooks() {
-    const input = document.getElementById("searchBox").value.toLowerCase().trim();
-    const books = document.querySelectorAll(".book-card");
-    const notFoundMessage = document.getElementById("notFound");
-
-    let matchCount = 0;
-
-    books.forEach(book => {
-        const title = book.querySelector(".book-title").innerText.toLowerCase();
-
-        if (title.includes(input)) {
-            book.style.display = "";
-            matchCount++;
-        } else {
-            book.style.display = "none";
-        }
-    });
-
-    if (input !== "" && matchCount === 0) {
-        notFoundMessage.style.display = "block";
-    } else {
-        notFoundMessage.style.display = "none";
-    }
-}
-
-document.getElementById("searchBox").addEventListener("input", searchBooks);
-</script>
 
 </body>
 </html>
