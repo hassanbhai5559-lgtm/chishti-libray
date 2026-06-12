@@ -7,174 +7,204 @@
 
 <title>Chishti Library | Islamic Digital Library</title>
 
+<meta name="description" content="Read Islamic Books Online and Download PDF Books from Chishti Library.">
+<meta name="keywords" content="Islamic Books, Urdu Books, Chishti Library, PDF Books">
+<meta name="author" content="Chishti Library">
+
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif;
-    background:#f5f5f5;
-    color:#333;
+font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif;
+background:#f4f7fb;
+color:#333;
 }
 
 .header{
-    background:#0f5132;
-    color:white;
-    text-align:center;
-    padding:40px 20px;
+background:linear-gradient(135deg,#1e3c72,#2a5298);
+color:white;
+text-align:center;
+padding:60px 20px;
 }
 
 .logo{
-    width:120px;
-    height:auto;
-    margin-bottom:15px;
+width:120px;
+margin-bottom:15px;
 }
 
 .header h1{
-    font-size:42px;
-    margin-bottom:10px;
+font-size:48px;
+margin-bottom:10px;
 }
 
 .header p{
-    font-size:18px;
+font-size:18px;
 }
 
 .main-content{
-    max-width:1200px;
-    margin:auto;
-    padding:30px 20px;
+max-width:1200px;
+margin:auto;
+padding:30px 20px;
 }
 
 .search-container{
-    text-align:center;
-    margin-bottom:30px;
+text-align:center;
+margin-bottom:30px;
 }
 
 .search-container input{
-    width:100%;
-    max-width:600px;
-    padding:15px;
-    border-radius:30px;
-    border:1px solid #ccc;
-    font-size:16px;
+width:100%;
+max-width:650px;
+padding:15px;
+border-radius:30px;
+border:1px solid #ccc;
+font-size:16px;
+}
+
+.welcome{
+background:white;
+padding:25px;
+border-radius:15px;
+text-align:center;
+margin-bottom:30px;
+box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.stats{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-bottom:40px;
+}
+
+.stat-box{
+background:white;
+padding:20px;
+width:220px;
+border-radius:12px;
+text-align:center;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
 }
 
 .section-title{
-    text-align:center;
-    color:#0f5132;
-    margin-bottom:30px;
+text-align:center;
+color:#1e3c72;
+margin-bottom:30px;
 }
 
 .grid-container{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:25px;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:25px;
 }
 
 .book-card{
-    background:white;
-    width:320px;
-    border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 4px 15px rgba(0,0,0,.1);
-    padding:15px;
+background:white;
+width:320px;
+padding:15px;
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,.08);
 }
 
 .book-cover-wrap{
-    height:380px;
-    overflow:hidden;
-    border-radius:8px;
+height:400px;
+overflow:hidden;
+border-radius:10px;
 }
 
 .book-cover{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
 .book-title{
-    margin-top:15px;
-    margin-bottom:10px;
-    color:#0f5132;
+margin-top:15px;
+color:#1e3c72;
 }
 
 .book-info{
-    font-size:14px;
-    margin-bottom:6px;
+margin-top:8px;
+font-size:14px;
 }
 
 .book-desc{
-    margin-top:10px;
-    font-size:14px;
-    line-height:1.6;
+margin-top:10px;
+font-size:14px;
+line-height:1.6;
 }
 
 .btn{
-    display:block;
-    text-align:center;
-    padding:12px;
-    text-decoration:none;
-    color:white;
-    border-radius:6px;
-    margin-top:10px;
+display:block;
+text-align:center;
+padding:12px;
+margin-top:10px;
+text-decoration:none;
+border-radius:6px;
+color:white;
+font-weight:bold;
 }
 
 .read-btn{
-    background:#0f5132;
+background:#1e3c72;
 }
 
 .download-btn{
-    background:#198754;
+background:#2a5298;
 }
 
 .btn:hover{
-    opacity:.9;
+opacity:.9;
 }
 
 .about-section{
-    background:white;
-    padding:30px;
-    margin-top:40px;
-    border-radius:12px;
-    box-shadow:0 4px 15px rgba(0,0,0,.08);
+background:white;
+padding:30px;
+margin-top:40px;
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,.08);
 }
 
 .about-section h2{
-    color:#0f5132;
-    margin-bottom:15px;
+margin-bottom:15px;
+color:#1e3c72;
 }
 
 footer{
-    background:#0f5132;
-    color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:40px;
+background:#0b1f3a;
+color:white;
+text-align:center;
+padding:25px;
+margin-top:40px;
 }
 
 .no-results{
-    display:none;
-    text-align:center;
-    margin-top:30px;
-    font-size:18px;
-    color:#777;
+display:none;
+text-align:center;
+padding:30px;
+font-size:18px;
+color:#777;
 }
 
 @media(max-width:768px){
 
 .header h1{
-    font-size:30px;
+font-size:34px;
 }
 
 .book-card{
-    width:100%;
+width:100%;
 }
 
 }
+
 </style>
 </head>
 
@@ -186,44 +216,81 @@ footer{
 
 <h1>Chishti Library</h1>
 
-<p>Ilm Ka Digital Khazana</p>
+<p>World-Class Islamic Digital Library</p>
 
 </header>
 
 <main class="main-content">
 
 <div class="search-container">
-<input type="text" id="searchBox" placeholder="Search Islamic Books...">
+
+<input type="text" id="searchBox" placeholder="Search Books...">
+
 </div>
 
-<h2 class="section-title">Available Books</h2>
+<section class="welcome">
+
+<h2>Welcome to Chishti Library</h2>
+
+<p>
+Read Islamic Books Online, Download PDFs and Explore Authentic Islamic Knowledge.
+</p>
+
+</section>
+
+<section class="stats">
+
+<div class="stat-box">
+<h3>📚 1+</h3>
+<p>Books Available</p>
+</div>
+
+<div class="stat-box">
+<h3>🌍 Global</h3>
+<p>Readers</p>
+</div>
+
+<div class="stat-box">
+<h3>⬇ PDF</h3>
+<p>Downloads</p>
+</div>
+
+</section>
+
+<h2 class="section-title">Featured Books</h2>
 
 <div class="grid-container" id="bookGrid">
 
 <div class="book-card">
 
 <div class="book-cover-wrap">
+
 <img src="image.png" alt="Shahdaye Karbala" class="book-cover">
+
 </div>
 
 <h3 class="book-title">Shahdaye Karbala</h3>
 
-<p class="book-info"><b>Author:</b> Chishti Library Collection</p>
+<p class="book-info"><b>Author:</b> Chishti Library</p>
 
 <p class="book-info"><b>Language:</b> Urdu</p>
 
-<p class="book-info"><b>Format:</b> PDF & Online Reading</p>
+<p class="book-info"><b>Pages:</b> 128</p>
+
+<p class="book-info"><b>Category:</b> Islamic History</p>
+
+<p class="book-info"><b>Rating:</b> ⭐⭐⭐⭐⭐</p>
 
 <p class="book-desc">
 Karbala ke shahidon ki qurbaniyon aur Islami tareekh par mabni aham kitab.
 </p>
 
 <a href="shahdaye-karbala-4.html" class="btn read-btn">
-Read Online
+📖 Read Online
 </a>
 
 <a href="shahdaye-karbala.pdf.pdf" class="btn download-btn" download>
-Download PDF
+⬇ Download PDF
 </a>
 
 </div>
@@ -234,17 +301,16 @@ Download PDF
 No books found.
 </div>
 
-<div class="about-section">
+<section class="about-section">
 
 <h2>About Chishti Library</h2>
 
 <p>
-Chishti Library ek Islamic Digital Library hai jahan Urdu aur Islami kutub ko online
-parhna aur download karna mumkin hai. Hamara maqsad ilm ko duniya bhar ke qariyin tak
-pohanchana hai.
+Chishti Library ek Islamic Digital Library hai jahan Urdu aur Islami kutub online parhi aur download ki ja sakti hain.
+Hamara mission ilm ko duniya bhar tak pohanchana hai.
 </p>
 
-</div>
+</section>
 
 </main>
 
@@ -260,20 +326,15 @@ pohanchana hai.
 
 function searchBooks(){
 
-let input =
-document.getElementById("searchBox")
-.value.toLowerCase();
+let input=document.getElementById("searchBox").value.toLowerCase();
 
-let books =
-document.querySelectorAll(".book-card");
+let books=document.querySelectorAll(".book-card");
 
-let found = 0;
+let found=0;
 
 books.forEach(book=>{
 
-let title =
-book.querySelector(".book-title")
-.innerText.toLowerCase();
+let title=book.querySelector(".book-title").innerText.toLowerCase();
 
 if(title.includes(input)){
 
@@ -288,16 +349,12 @@ book.style.display="none";
 
 });
 
-document.getElementById("notFound")
-.style.display =
-(found===0 && input!=="")
-? "block"
-: "none";
+document.getElementById("notFound").style.display=
+(found===0 && input!=="") ? "block" : "none";
 
 }
 
-document
-.getElementById("searchBox")
+document.getElementById("searchBox")
 .addEventListener("input",searchBooks);
 
 </script>
