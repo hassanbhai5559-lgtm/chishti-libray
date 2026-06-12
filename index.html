@@ -1,209 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="google-site-verification" content="Nu4dgdg7ZoLzYKrhOL0UbRmrjxaXVEm47raDJnEYeFQ">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chishti Library Books Center</title>
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="Nu4dgdg7ZoLzYKrhOL0UbRmrjxaXVEm47raDJnEYeFQ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<title>Chishti Library | Islamic Digital Library</title>
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f4f4f4;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            color: #333;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        .header {
-            text-align: center;
-            background: #0f5132;
-            color: white;
-            padding: 50px 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
+body{
+    font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif;
+    background:#f5f5f5;
+    color:#333;
+}
 
-        .header h1 {
-            font-size: 2.6rem;
-            margin-bottom: 10px;
-        }
+.header{
+    background:#0f5132;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+}
 
-        .header p {
-            opacity: 0.9;
-            font-size: 1.15rem;
-            font-style: italic;
-        }
+.logo{
+    width:120px;
+    height:auto;
+    margin-bottom:15px;
+}
 
-        .main-content {
-            flex: 1;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+.header h1{
+    font-size:42px;
+    margin-bottom:10px;
+}
 
-        .search-container {
-            text-align: center;
-            margin: 35px 0;
-        }
+.header p{
+    font-size:18px;
+}
 
-        .search-container input {
-            width: 100%;
-            max-width: 600px;
-            padding: 14px 20px;
-            border: 1px solid #ccc;
-            border-radius: 30px;
-            font-size: 16px;
-            outline: none;
-        }
+.main-content{
+    max-width:1200px;
+    margin:auto;
+    padding:30px 20px;
+}
 
-        .search-container input:focus {
-            border-color: #0f5132;
-        }
+.search-container{
+    text-align:center;
+    margin-bottom:30px;
+}
 
-        .grid-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 25px;
-        }
+.search-container input{
+    width:100%;
+    max-width:600px;
+    padding:15px;
+    border-radius:30px;
+    border:1px solid #ccc;
+    font-size:16px;
+}
 
-        .book-card {
-            background: white;
-            width: 290px;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-        }
+.section-title{
+    text-align:center;
+    color:#0f5132;
+    margin-bottom:30px;
+}
 
-        .book-cover-wrap {
-            width: 100%;
-            height: 280px;
-            background: #eaeaea;
-            border-radius: 8px;
-            overflow: hidden;
-            margin-bottom: 15px;
-        }
+.grid-container{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:25px;
+}
 
-        .book-cover {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.book-card{
+    background:white;
+    width:320px;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,.1);
+    padding:15px;
+}
 
-        .book-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
+.book-cover-wrap{
+    height:380px;
+    overflow:hidden;
+    border-radius:8px;
+}
 
-        .btn-read {
-            display: block;
-            width: 100%;
-            padding: 12px 0;
-            background: #0f5132;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-        }
+.book-cover{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
 
-        .btn-read:hover {
-            background: #146c43;
-        }
+.book-title{
+    margin-top:15px;
+    margin-bottom:10px;
+    color:#0f5132;
+}
 
-        .no-results {
-            text-align: center;
-            color: #777;
-            font-size: 1.2rem;
-            padding: 40px 0;
-            display: none;
-        }
+.book-info{
+    font-size:14px;
+    margin-bottom:6px;
+}
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #0f5132;
-            color: white;
-        }
+.book-desc{
+    margin-top:10px;
+    font-size:14px;
+    line-height:1.6;
+}
 
-        @media (max-width: 600px) {
-            .book-card {
-                width: 100%;
-            }
-        }
-    </style>
+.btn{
+    display:block;
+    text-align:center;
+    padding:12px;
+    text-decoration:none;
+    color:white;
+    border-radius:6px;
+    margin-top:10px;
+}
+
+.read-btn{
+    background:#0f5132;
+}
+
+.download-btn{
+    background:#198754;
+}
+
+.btn:hover{
+    opacity:.9;
+}
+
+.about-section{
+    background:white;
+    padding:30px;
+    margin-top:40px;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.about-section h2{
+    color:#0f5132;
+    margin-bottom:15px;
+}
+
+footer{
+    background:#0f5132;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+.no-results{
+    display:none;
+    text-align:center;
+    margin-top:30px;
+    font-size:18px;
+    color:#777;
+}
+
+@media(max-width:768px){
+
+.header h1{
+    font-size:30px;
+}
+
+.book-card{
+    width:100%;
+}
+
+}
+</style>
 </head>
 
 <body>
 
 <header class="header">
-    <h1>Chishti Library</h1>
-    <p>Islamic Books & Reading Center</p>
+
+<img src="logo.png" alt="Chishti Library Logo" class="logo">
+
+<h1>Chishti Library</h1>
+
+<p>Ilm Ka Digital Khazana</p>
+
 </header>
 
 <main class="main-content">
 
-    <div class="search-container">
-        <input type="text" id="searchBox" placeholder="Search books...">
-    </div>
+<div class="search-container">
+<input type="text" id="searchBox" placeholder="Search Islamic Books...">
+</div>
 
-    <div class="grid-container" id="bookGrid">
+<h2 class="section-title">Available Books</h2>
 
-        <div class="book-card">
-            <div class="book-cover-wrap">
-                <img src="image.png" alt="Shahdaye Karbala Cover" class="book-cover">
-            </div>
-            <h3 class="book-title">Shahdaye Karbala</h3>
-            <a href="./shahdaye-karbala-4.html" class="btn-read">Read Book</a>
-        </div>
+<div class="grid-container" id="bookGrid">
 
-    </div>
+<div class="book-card">
 
-    <div class="no-results" id="notFound">
-        No books match your search.
-    </div>
+<div class="book-cover-wrap">
+<img src="image.png" alt="Shahdaye Karbala" class="book-cover">
+</div>
+
+<h3 class="book-title">Shahdaye Karbala</h3>
+
+<p class="book-info"><b>Author:</b> Chishti Library Collection</p>
+
+<p class="book-info"><b>Language:</b> Urdu</p>
+
+<p class="book-info"><b>Format:</b> PDF & Online Reading</p>
+
+<p class="book-desc">
+Karbala ke shahidon ki qurbaniyon aur Islami tareekh par mabni aham kitab.
+</p>
+
+<a href="shahdaye-karbala-4.html" class="btn read-btn">
+Read Online
+</a>
+
+<a href="shahdaye-karbala.pdf.pdf" class="btn download-btn" download>
+Download PDF
+</a>
+
+</div>
+
+</div>
+
+<div class="no-results" id="notFound">
+No books found.
+</div>
+
+<div class="about-section">
+
+<h2>About Chishti Library</h2>
+
+<p>
+Chishti Library ek Islamic Digital Library hai jahan Urdu aur Islami kutub ko online
+parhna aur download karna mumkin hai. Hamara maqsad ilm ko duniya bhar ke qariyin tak
+pohanchana hai.
+</p>
+
+</div>
 
 </main>
 
 <footer>
-    &copy; 2026 Chishti Library. All Rights Reserved.
+
+<p>© 2026 Chishti Library. All Rights Reserved.</p>
+
+<p>Islamic Digital Library & Reading Center</p>
+
 </footer>
 
 <script>
-function searchBooks() {
-    const input = document.getElementById("searchBox").value.toLowerCase().trim();
-    const books = document.querySelectorAll(".book-card");
-    const notFoundMessage = document.getElementById("notFound");
 
-    let matchCount = 0;
+function searchBooks(){
 
-    books.forEach(book => {
-        const title = book.querySelector(".book-title").innerText.toLowerCase();
+let input =
+document.getElementById("searchBox")
+.value.toLowerCase();
 
-        if (title.includes(input)) {
-            book.style.display = "";
-            matchCount++;
-        } else {
-            book.style.display = "none";
-        }
-    });
+let books =
+document.querySelectorAll(".book-card");
 
-    if (input !== "" && matchCount === 0) {
-        notFoundMessage.style.display = "block";
-    } else {
-        notFoundMessage.style.display = "none";
-    }
+let found = 0;
+
+books.forEach(book=>{
+
+let title =
+book.querySelector(".book-title")
+.innerText.toLowerCase();
+
+if(title.includes(input)){
+
+book.style.display="block";
+found++;
+
+}else{
+
+book.style.display="none";
+
 }
 
-document.getElementById("searchBox").addEventListener("input", searchBooks);
+});
+
+document.getElementById("notFound")
+.style.display =
+(found===0 && input!=="")
+? "block"
+: "none";
+
+}
+
+document
+.getElementById("searchBox")
+.addEventListener("input",searchBooks);
+
 </script>
 
 </body>
