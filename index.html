@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="google-site-verification" content="Nu4dgdg7ZoLzYKrhOL0UbRmrjxaXVEm47raDJnEYeFQ">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Chishti Library | Islamic Digital Library</title>
@@ -39,11 +38,14 @@ padding:60px 20px;
 }
 
 .logo{
-width:100px;
-height:100px;
+width:120px;
+height:120px;
 border-radius:50%;
-object-fit:cover;
+background:white;
+padding:5px;
 border:4px solid white;
+object-fit:cover;
+box-shadow:0 5px 20px rgba(0,0,0,.25);
 margin-bottom:15px;
 }
 
@@ -61,25 +63,22 @@ font-size:18px;
 .navbar{
 position:sticky;
 top:0;
-z-index:999;
 background:white;
 display:flex;
 justify-content:center;
-gap:25px;
+gap:20px;
 padding:15px;
 box-shadow:0 2px 10px rgba(0,0,0,.08);
+z-index:999;
 }
 
 .navbar a{
 text-decoration:none;
 font-weight:bold;
 color:#2196f3;
-padding:8px 14px;
-border-radius:8px;
 }
 
 .navbar a:hover{
-background:#e3f2fd;
 color:#00c853;
 }
 
@@ -116,7 +115,6 @@ border-radius:15px;
 text-align:center;
 margin-bottom:30px;
 box-shadow:0 4px 15px rgba(0,0,0,.08);
-border-left:6px solid #00c853;
 }
 
 /* Stats */
@@ -124,14 +122,9 @@ border-left:6px solid #00c853;
 .stats{
 display:flex;
 justify-content:center;
-gap:20px;
 flex-wrap:wrap;
-margin-bottom:50px;
-}
-
-.stats a{
-text-decoration:none;
-color:inherit;
+gap:20px;
+margin-bottom:40px;
 }
 
 .stat-box{
@@ -141,22 +134,15 @@ width:220px;
 border-radius:12px;
 text-align:center;
 box-shadow:0 4px 12px rgba(0,0,0,.08);
-transition:.3s;
-cursor:pointer;
 }
-
-.stat-box:hover{
-transform:scale(1.05);
-}
-
-/* Books */
 
 .section-title{
 text-align:center;
-color:#00c853;
 margin-bottom:30px;
-font-size:32px;
+color:#00c853;
 }
+
+/* Books */
 
 .grid-container{
 display:flex;
@@ -171,6 +157,7 @@ width:340px;
 padding:15px;
 border-radius:12px;
 box-shadow:0 4px 15px rgba(0,0,0,.08);
+cursor:pointer;
 transition:.3s;
 }
 
@@ -202,26 +189,57 @@ font-size:14px;
 
 .book-desc{
 margin-top:10px;
-font-size:14px;
 line-height:1.6;
+font-size:14px;
 }
 
-/* Buttons */
+/* Modal */
+
+.modal{
+display:none;
+position:fixed;
+z-index:2000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.7);
+}
+
+.modal-content{
+background:white;
+width:90%;
+max-width:500px;
+margin:60px auto;
+padding:25px;
+border-radius:15px;
+text-align:center;
+position:relative;
+}
+
+.modal img{
+width:220px;
+max-width:100%;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+.close{
+position:absolute;
+right:15px;
+top:10px;
+font-size:30px;
+cursor:pointer;
+}
 
 .btn{
 display:block;
-text-align:center;
 padding:12px;
 margin-top:10px;
 border-radius:8px;
 text-decoration:none;
 font-weight:bold;
 color:white;
-transition:.3s;
-}
-
-.btn:hover{
-opacity:.9;
 }
 
 .read-btn{
@@ -242,11 +260,6 @@ border-radius:12px;
 box-shadow:0 4px 15px rgba(0,0,0,.08);
 }
 
-.about-section h2{
-color:#2196f3;
-margin-bottom:15px;
-}
-
 /* Footer */
 
 footer{
@@ -262,7 +275,6 @@ display:none;
 text-align:center;
 padding:30px;
 font-size:18px;
-color:#777;
 }
 
 @media(max-width:768px){
@@ -297,53 +309,38 @@ width:100%;
 </header>
 
 <nav class="navbar">
-
 <a href="#">🏠 Home</a>
 <a href="#books">📚 Books</a>
 <a href="#about">ℹ About</a>
-
 </nav>
 
 <main class="main-content">
 
 <div class="search-container">
-
 <input type="text" id="searchBox" placeholder="🔍 Search Books...">
-
 </div>
 
 <section class="welcome">
-
 <h2>Welcome to Chishti Library</h2>
-
-<p>
-Explore Islamic books, read online and download PDFs from our growing digital collection.
-</p>
-
+<p>Explore Islamic books, read online and download PDFs from our growing digital collection.</p>
 </section>
 
 <section class="stats">
 
-<a href="#books">
 <div class="stat-box">
 <h3>📚 1+</h3>
 <p>Books Available</p>
 </div>
-</a>
 
-<a href="#about">
 <div class="stat-box">
 <h3>🌍 Global</h3>
 <p>Readers</p>
 </div>
-</a>
 
-<a href="shahdaye-karbala.pdf.pdf" download>
 <div class="stat-box">
 <h3>⬇ PDF</h3>
 <p>Downloads</p>
 </div>
-</a>
 
 </section>
 
@@ -351,7 +348,7 @@ Explore Islamic books, read online and download PDFs from our growing digital co
 
 <div class="grid-container" id="bookGrid">
 
-<div class="book-card">
+<div class="book-card" onclick="openBook()">
 
 <div class="book-cover-wrap">
 <img src="image.png" alt="Shahdaye Karbala" class="book-cover">
@@ -361,27 +358,13 @@ Explore Islamic books, read online and download PDFs from our growing digital co
 
 <p class="book-info"><b>Author:</b> Saim Chishti</p>
 
-<p class="book-info"><b>Publisher:</b> Chishti Library</p>
-
 <p class="book-info"><b>Language:</b> Urdu</p>
 
-<p class="book-info"><b>Pages:</b> 128</p>
-
 <p class="book-info"><b>Category:</b> Islamic History</p>
-
-<p class="book-info"><b>Rating:</b> ⭐⭐⭐⭐⭐</p>
 
 <p class="book-desc">
 Karbala ke shahidon ki qurbaniyon aur Islami tareekh par mabni aham kitab.
 </p>
-
-<a href="shahdaye-karbala-4.html" target="_blank" class="btn read-btn">
-📖 Read Online
-</a>
-
-<a href="shahdaye-karbala.pdf.pdf" download class="btn download-btn">
-⬇ Download PDF
-</a>
 
 </div>
 
@@ -396,7 +379,7 @@ No books found.
 <h2>About Chishti Library</h2>
 
 <p>
-Chishti Library is an Islamic Digital Library dedicated to preserving and sharing authentic Islamic knowledge. Readers can read books online, download PDFs and explore Islamic history and literature.
+Chishti Library is an Islamic Digital Library dedicated to preserving and sharing authentic Islamic knowledge.
 </p>
 
 </section>
@@ -404,14 +387,52 @@ Chishti Library is an Islamic Digital Library dedicated to preserving and sharin
 </main>
 
 <footer>
-
 <p>© 2026 Chishti Library. All Rights Reserved.</p>
-
 <p>Founder & Author: Saim Chishti</p>
-
 </footer>
 
+<!-- Modal -->
+
+<div class="modal" id="bookModal">
+
+<div class="modal-content">
+
+<span class="close" onclick="closeBook()">&times;</span>
+
+<img src="image.png" alt="Book Cover">
+
+<h2>Shahdaye Karbala</h2>
+
+<p>Author: Saim Chishti</p>
+
+<a href="shahdaye-karbala-4.html" target="_blank" class="btn read-btn">
+📖 Read Online
+</a>
+
+<a href="shahdaye-karbala.pdf.pdf" download class="btn download-btn">
+⬇ Download PDF
+</a>
+
+</div>
+
+</div>
+
 <script>
+
+function openBook(){
+document.getElementById("bookModal").style.display="block";
+}
+
+function closeBook(){
+document.getElementById("bookModal").style.display="none";
+}
+
+window.onclick=function(event){
+let modal=document.getElementById("bookModal");
+if(event.target==modal){
+modal.style.display="none";
+}
+}
 
 function searchBooks(){
 
@@ -426,14 +447,10 @@ books.forEach(book=>{
 let title=book.querySelector(".book-title").innerText.toLowerCase();
 
 if(title.includes(input)){
-
 book.style.display="block";
 found++;
-
 }else{
-
 book.style.display="none";
-
 }
 
 });
